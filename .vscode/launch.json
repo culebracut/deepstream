@@ -5,12 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Deepstream: test1",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
             "console": "integratedTerminal",
+            "program": "deepstream_test_1.py",
+            "cwd": "${workspaceFolder}/apps/deepstream-test1",
             "args": ["/opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4"]
+        },
+        {
+            "name": "DS: USB Cam",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "deepstream_test_1_usb.py",
+            "cwd": "${workspaceFolder}/apps/deepstream-test1-usbcam",
+            "args": ["/dev/video1"]
         }
     ]
 }
