@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/usr/bin/python3",
+    "python.envFile": "/opt/nvidia/deepstream/deepstream-5.0/samples/python/.vscode/jetson.env"
+}
