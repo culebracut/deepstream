@@ -229,9 +229,24 @@ def main(args):
         sys.stderr.write("usage: %s <uri1> [uri2] ... [uriN] <folder to save frames>\n" % args[0])
         sys.exit(1)
 
-    for i in range(0,len(args)-2):
+    """     for i in range(0,len(args)-2):
         fps_streams["stream{0}".format(i)]=GETFPS(i)
-    number_sources=len(args)-2
+    number_sources=len(args)-2 """
+
+    #TODO: remove hack past first paramater and last with -4 
+    number_sources = len(args)-1 -5
+    for i in range(0,number_sources):                         
+        fps_streams["stream{0}".format(i)]=GETFPS(i)
+
+    # TODO: modify index not offset; see launch.json
+    width = int(args[len(args)-3])
+    height = int(args[len(args)-1])
+
+    MUXER_OUTPUT_WIDTH=width
+    MUXER_OUTPUT_HEIGHT=height
+    TILED_OUTPUT_WIDTH=width
+    TILED_OUTPUT_HEIGHT=height
+#############################################
 
     global folder_name
     folder_name=args[-1]
@@ -324,8 +339,8 @@ def main(args):
         print("Atleast one of the sources is live")
         streammux.set_property('live-source', 1)
 
-    streammux.set_property('width', 1920)
-    streammux.set_property('height', 1080)
+    streammux.set_property('width', width)
+    streammux.set_property('height', height)
     streammux.set_property('batch-size', number_sources)
     streammux.set_property('batched-push-timeout', 4000000)
     pgie.set_property('config-file-path', "dstest_imagedata_config.txt")

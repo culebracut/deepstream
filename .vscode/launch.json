@@ -5,22 +5,117 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Deepstream: test1",
+            "name": "Test #1 - people,cars",
             "type": "python",
             "request": "launch",
             "console": "integratedTerminal",
             "program": "deepstream_test_1.py",
             "cwd": "${workspaceFolder}/apps/deepstream-test1",
-            "args": ["/opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4"]
+            "args": [
+                "/opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.h264",
+                "--width", "640",
+                "--height", "360"]
         },
         {
-            "name": "DS: USB Cam",
+            "name": "Test #2 - identify",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "deepstream_test_2.py",
+            "cwd": "${workspaceFolder}/apps/deepstream-test2",
+            "args": [
+                "/opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.h264",
+                "--width", "640",
+                "--height", "360"
+            ]
+        },  
+        {
+            "name": "Test #3 - deepstream",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "deepstream_test_3.py",
+            "cwd": "${workspaceFolder}/apps/deepstream-test3",
+            "args": [
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "--width", "960",
+                "--height", "540"
+            ]
+        },    
+/*         {
+            "name": "Test #1 - RTSP",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "deepstream_test1_rtsp_out.py",
+            "cwd": "${workspaceFolder}/apps/deepstream-test1-rtsp-out",
+            "args": [
+                "/opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.h264",
+                "--width", "640",
+                "--height", "360"
+            ]
+        }, */ 
+/*         {
+            "name": "Test #4 ",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "deepstream_test_4.py",
+            "cwd": "${workspaceFolder}/apps/deepstream-test4",
+            "args": [
+                "/opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.h264",
+                "--width", "640",
+                "--height", "360"
+            ]
+        },  */
+        {
+            "name": "DS: USB Cam - people detect",
             "type": "python",
             "request": "launch",
             "console": "integratedTerminal",
             "program": "deepstream_test_1_usb.py",
             "cwd": "${workspaceFolder}/apps/deepstream-test1-usbcam",
-            "args": ["/dev/video1"]
-        }
+            "args": [
+                "/dev/video1",
+                "--width", "640",
+                "--height", "480"]
+        },
+/*         {
+            "name": "DS: SSD",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "deepstream_ssd_parser.py",
+            "cwd": "${workspaceFolder}/apps/deepstream-ssd-parser",
+            "args": ["/opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4"],
+            // this ENV might be depended on the above stream
+            "env": {
+                "LD_PRELOAD" : "/usr/lib/aarch64-linux-gnu/libgomp.so.1"}
+        }, */
+        {
+            "name": "DS: Image Data /Multi Stream",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "deepstream_imagedata-multistream.py",
+            "cwd": "${workspaceFolder}/apps/deepstream-imagedata-multistream",
+            "args": [
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_cam6.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.mp4",
+                "file:///opt/nvidia/deepstream/deepstream-5.0/samples/streams/sample_720p.h264",
+                "temp_streams_folder",
+                "--width", "640",
+                "--height", "480"
+            ]
+        },
     ]
 }

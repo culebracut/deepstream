@@ -126,9 +126,14 @@ def osd_sink_pad_buffer_probe(pad,info,u_data):
 
 def main(args):
     # Check input arguments
-    if len(args) != 2:
+    if len(args) < 2:
         sys.stderr.write("usage: %s <v4l2-device-path>\n" % args[0])
         sys.exit(1)
+
+    # TODO: use parsing
+    width = int(args[3])
+    height = int(args[5])
+    
 
     # Standard GStreamer initialization
     GObject.threads_init()
@@ -214,8 +219,8 @@ def main(args):
     caps_v4l2src.set_property('caps', Gst.Caps.from_string("video/x-raw, framerate=30/1"))
     caps_vidconvsrc.set_property('caps', Gst.Caps.from_string("video/x-raw(memory:NVMM)"))
     source.set_property('device', args[1])
-    streammux.set_property('width', 1920)
-    streammux.set_property('height', 1080)
+    streammux.set_property('width', width)
+    streammux.set_property('height', height)
     streammux.set_property('batch-size', 1)
     streammux.set_property('batched-push-timeout', 4000000)
     pgie.set_property('config-file-path', "dstest1_pgie_config.txt")

@@ -26,6 +26,7 @@
 
 import sys
 import io
+import os
 sys.path.append("../")
 import gi
 gi.require_version("Gst", "1.0")
@@ -358,6 +359,8 @@ def main(args):
                        "/usr/lib/aarch64-linux-gnu/libgomp.so.1: cannot allocate memory in static TLS block\n" + \
                        "Preload the offending library:\n" + \
                        "export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1\n"
+
+    os.environ["LD_PRELOAD"] = "/usr/lib/aarch64-linux-gnu/libgomp.so.1"
     encoder = make_elm_or_print_err("avenc_mpeg4", "encoder", "Encoder", preload_reminder)
 
     encoder.set_property("bitrate", 2000000)
