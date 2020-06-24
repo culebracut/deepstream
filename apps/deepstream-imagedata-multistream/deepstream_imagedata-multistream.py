@@ -391,6 +391,7 @@ def main(args):
         nvosd.link(sink)
 
     # create an event loop and feed gstreamer bus mesages to it
+    # TODO: determine this codes meaning
     loop = GObject.MainLoop()
     bus = pipeline.get_bus()
     bus.add_signal_watch()

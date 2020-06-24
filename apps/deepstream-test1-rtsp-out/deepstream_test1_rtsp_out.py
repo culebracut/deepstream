@@ -33,8 +33,8 @@ from gi.repository import GObject, Gst, GstRtspServer
 from common.is_aarch_64 import is_aarch64
 from common.bus_call import bus_call
 
-#import pyds
-from bindings.jetson import pyds
+import pyds
+#from bindings.jetson import pyds
 
 PGIE_CLASS_ID_VEHICLE = 0
 PGIE_CLASS_ID_BICYCLE = 1

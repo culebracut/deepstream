@@ -35,7 +35,7 @@ from common.is_aarch_64 import is_aarch64
 from common.bus_call import bus_call
 from ssd_parser import nvds_infer_parse_custom_tf_ssd, DetectionParam, NmsParam, BoxSizeParam
 import pyds
-
+#from bindings.jetson import pyds
 
 
 
